@@ -10,10 +10,6 @@ def discord_msg(session_name:str,msg:str):
         webhook = DiscordWebhook(
         url=settings.DISCORD_WEEBHOOK_URL,
         content=msg,
-            # f"{self.session_name} | "
-            # f"Successfully upgraded __**{upgrade_id}**__ with price **{price:,}** to **{level}** lvl | "
-            # f"Earn every hour: **{earn_on_hour:,}** (+__{profit:,}__) | "
-            # f"Money left: **{balance:,}**",
         username=session_name,
         # avatar_url=avatar
         )
