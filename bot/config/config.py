@@ -28,5 +28,7 @@ class Settings(BaseSettings):
 
     USE_PROXY_FROM_FILE: bool = False
 
+    DISCORD_WEEBHOOK_URL: str = ""
+
 
 settings = Settings()
