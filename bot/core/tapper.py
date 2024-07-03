@@ -383,6 +383,17 @@ class Tapper:
                                         f'Money left: <e>{balance:,}</e>'
                                     )
 
+
+
+                                    if "discord.com/api/webhooks/" in settings.DISCORD_WEEBHOOK_URL:
+                                        discord_msg(self.session_name,
+                                            f"{self.session_name} | "
+                                            f"Successfully upgraded __**{upgrade_id}**__ with price **{price:,}** to **{level}** lvl | "
+                                            f"Earn every hour: **{earn_on_hour:,}** (+__{profit:,}__) | "
+                                            f"Money left: **{balance:,}**",
+                                        )
+
+
                                     await asyncio.sleep(delay=1)
 
                                     continue
