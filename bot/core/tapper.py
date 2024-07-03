@@ -11,6 +11,7 @@ from pyrogram import Client
 from bot.api.combo import claim_daily_combo, get_combo_cards
 from bot.api.telegram import get_me_telegram
 from bot.config import settings
+from bot.core.discord import discord_msg
 from bot.utils.logger import logger
 from bot.exceptions import InvalidSession
 
