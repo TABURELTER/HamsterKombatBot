@@ -2,7 +2,7 @@ from discord_webhook import DiscordWebhook
 from bot.config import settings
 from bot.utils.logger import logger
 
-# avatar = "https://static9.tgcnt.ru/posts/_0/8b/8b90de800cdeb8557c9fa7a6c04ad8cf.jpg"
+avatar = "https://static9.tgcnt.ru/posts/_0/8b/8b90de800cdeb8557c9fa7a6c04ad8cf.jpg"
 
 def discord_msg(session_name:str,msg:str):
     try:
