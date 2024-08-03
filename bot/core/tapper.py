@@ -452,29 +452,29 @@ class Tapper:
                         status, upgrades = await buy_upgrade(http_client=http_client, upgrade_id=upgrade_id)
 
 
-                            earn_on_hour += profit
-                            balance -= price
-                            logger.success(
-                                f'{self.session_name} | '
-                                f'Successfully upgraded <le>{upgrade_id}</le> with price <lr>{price:,}</lr> to <m>{level}</m> lvl | '
-                                f'Earn every hour: <ly>{earn_on_hour:,}</ly> (<lg>+{profit:,}</lg>) | '
-                                f'Money left: <le>{balance:,}</le>'
+                        earn_on_hour += profit
+                        balance -= price
+                        logger.success(
+                            f'{self.session_name} | '
+                            f'Successfully upgraded <le>{upgrade_id}</le> with price <lr>{price:,}</lr> to <m>{level}</m> lvl | '
+                            f'Earn every hour: <ly>{earn_on_hour:,}</ly> (<lg>+{profit:,}</lg>) | '
+                            f'Money left: <le>{balance:,}</le>'
+                        )
+
+
+
+                        if "discord.com/api/webhooks/" in settings.DISCORD_WEEBHOOK_URL:
+                            discord_msg(self.session_name,
+                                f"{self.session_name} | "
+                                f"Successfully upgraded __**{upgrade_id}**__ with price **{price:,}** to **{level}** lvl | "
+                                f"Earn every hour: **{earn_on_hour:,}** (+__{profit:,}__) | "
+                                f"Money left: **{balance:,}**",
                             )
 
 
+                        await asyncio.sleep(delay=1)
 
-                            if "discord.com/api/webhooks/" in settings.DISCORD_WEEBHOOK_URL:
-                                discord_msg(self.session_name,
-                                    f"{self.session_name} | "
-                                    f"Successfully upgraded __**{upgrade_id}**__ with price **{price:,}** to **{level}** lvl | "
-                                    f"Earn every hour: **{earn_on_hour:,}** (+__{profit:,}__) | "
-                                    f"Money left: **{balance:,}**",
-                                )
-
-
-                            await asyncio.sleep(delay=1)
-
-                            continue
+                        continue
 
                 if available_energy < settings.MIN_AVAILABLE_ENERGY or not settings.USE_TAPS:
                     if settings.USE_TAPS:
